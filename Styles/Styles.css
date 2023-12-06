@@ -1,0 +1,212 @@
+:root {
+        /* --nombre-variable */
+        --font-primary: 'Merriweather', serif;
+        --color-primary: #A60311;
+        --color-secondary: #D9042B;
+        --color-text-primary: #D9CCB4;
+        --color-text-secondary: #D98E04;
+        --color-background: #590219;
+        --color-light: #F2F2F2;
+        --color-dark: #070C26;
+    }
+    /* 
+    Enfoque de diseño basado en sistemas para establecer reglas y patrones escalables y reutilizables.
+    Se personalizan variables para acceder a cualquier valor de una propiedad mediante la pseudoclase ":root" con la sintaxis --nombre-variable 
+    */
+body {
+        background-color: var(--color-background);
+        color: var(--color-text-primary);
+        font-family: var(--font-primary);
+    }
+
+.position{
+        width: 100px;
+        height: 100px;
+        background-color: var(--color-dark);
+        
+        }
+       
+        /* No se mueve */
+#static{
+    background-color: var(--color-text-secondary);
+    position: static;
+    top: 20px;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+
+}
+/* Es posicionado de forma relativa al elemento anterior y si permite movimiento mediante propiedades top, bottom, left, right */
+#relative{
+    background-color: var(--color-primary);
+    position: relative;
+    top: 50px;
+    bottom: 0;
+    left: 200px;
+    right: 20px;
+}
+/* es para que no se mueva, se queda fijo al scrollear*/
+#fixed{
+    position: fixed;
+    left: 350px;
+    top: 50px;
+    background-color: var(--color-light);
+    display: none;
+}
+
+/* es para utilizar lo de los ancestros, muy dificil*/
+#absolute{
+    background-color: var(--color-primary);
+    position: absolute;
+    top: 20px;
+}
+
+#chat{
+    position: fixed;
+    top: 500px;
+    left: 400px;
+    width: 60px;
+    height: 60px;
+}
+#Whatsapp {
+    width: 60px;
+    height: 60px;
+}
+
+.display-inline{   
+height: 100px;
+width: 100px;
+background-color: var(--color-text-primary);
+color: var(--color-dark);
+text-align: center;
+margin: 2px;
+}
+
+#display-2,  #display-4{
+display: inline;    
+height: 100px;
+width: 100px;
+background-color: var(--color-text-primary);
+color: var(--color-dark);
+text-align: center;
+margin: 2px;    
+}
+
+.display-block{
+display: inline-block;
+height: 100px;
+width: 100px;
+background-color: var(--color-secondary);
+text-align: center;
+margin: 2px;
+}
+
+ /* 
+Esto es para media, es decir para ocultar cosas dependiendo la situacion. 
+    */
+.display-none{
+display: none;
+
+}
+/*Display flex. Me permite trabajar de manera flexible con elementos anidados dentro de un ancestro. El flexbox se aplica en el container y tiene efecto sobre los hijos.
+Por default, la dirección de flex es en filas (row).
+Vamos a poder acceder a diversas propiedades para modificar el comportamiento de los elementos.
+
+    > - flex-direction: column, column-reverse, row, row-reverse
+    > - flex-wrap: wrap, nowrap, wrap-reverse
+    > - justify-content: center, flex-start, flex-end, space between, space-around
+    > - align-item: start, end, center
+    > - align-self: flex-start, flex-end */
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* align-items: center; */
+
+
+    width: auto;
+    height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--color-text-secondary);
+}
+
+.display-flex {
+    width: 100px;
+    height: 80px;
+    margin: 5px;
+    padding: 2px;
+    text-align: center;
+    background-color: var(--color-dark);
+    border-radius: 6px;
+}
+
+#item-6{
+
+}
+
+a{ 
+    text-decoration: none;
+    color: var(--color-light);
+}
+
+/*Grid layout*/
+.grid{
+    display: grid;
+    grid-template-columns: auto  ;
+
+    gap: 20px;
+    padding: 10px;
+}
+.display-grid{
+    background-color: var(--color-text-secondary);
+    border-radius: 3px;
+    padding: 20px;
+    text-align: center;
+    border: solid var(--color-secondary);
+}
+.container-1{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr 2fr 1fr;
+    grid-template-areas: 
+        "head head head"
+        "aside" "section"
+
+    
+    
+    
+    
+    ;
+    width: auto;
+    height: 500px;
+    border: solid var(--color-text-primary);
+    text-align: center;
+    margin: 10px;
+    font-size: 18px;
+}
+header{
+    background-color: var(--color-text-primary);
+    color: #070C26;
+    grid-area: head;
+}
+aside{
+    background-color: var(--color-text-primary);
+    grid-area: aside;
+}
+section{
+    background-color: #D9042B;
+    grid-area: section;
+
+}
+article{
+    background-color: var(--color-text-secondary);
+    grid-area: article;
+}
+footer{
+    background-color: var(--color-dark);
+    grid-area: footer;
+}
